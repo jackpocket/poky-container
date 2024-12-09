@@ -18,7 +18,7 @@
 # a default, when another distro was desired.
 ARG BASE_DISTRO=SPECIFY_ME
 
-FROM jackpocket/crops/yocto:$BASE_DISTRO-base
+FROM ghcr.io/jackpocket/crops/yocto:$BASE_DISTRO-base
 
 USER root
 

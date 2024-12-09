@@ -24,7 +24,7 @@ fi
 ${ENGINE_CMD} build \
     --build-arg BASE_DISTRO=${BASE_DISTRO} \
     --build-arg TARGETPLATFORM=$(TARGETPLATFORM) \
-    --pull -t $(REPO_URL)/${REPO}:${BASE_DISTRO} .
+    --pull -t ${REPO}:${BASE_DISTRO} .
 
 if command -v annotate-output; then
     ANNOTATE_OUTPUT=annotate-output
