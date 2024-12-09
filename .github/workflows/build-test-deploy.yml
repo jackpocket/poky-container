@@ -28,7 +28,8 @@ jobs:
         ]        
     env:
       BASE_DISTRO: ${{ matrix.base_distro }}
-      TARGETPLATFORM: ${{ matrix.targetplatform }}      
+      TARGETPLATFORM: ${{ matrix.targetplatform }}
+      REPO_URL: ghcr.io      
       REPO: jackpocket/crops/poky
       DEFAULT_DISTRO: debian-12
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
