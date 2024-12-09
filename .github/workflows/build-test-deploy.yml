@@ -14,31 +14,24 @@ on:
 
 jobs:
   build-test-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-2core-arm64
     permissions:
       packages: write
     strategy:
       fail-fast: false
       matrix:
         base_distro: [
-                      alma-8,
-                      alma-9,
-                      debian-10,
-                      debian-11,
-                      debian-12,
-                      fedora-39,
-                      fedora-40,
-                      opensuse-15.4,
-                      opensuse-15.5,
-                      opensuse-15.6,
-                      ubuntu-18.04,
-                      ubuntu-20.04,
-                      ubuntu-22.04
+          debian-12,
         ]
+        targetplatform: [
+          linux/arm64
+        ]        
     env:
       BASE_DISTRO: ${{ matrix.base_distro }}
-      REPO: crops/poky
-      DEFAULT_DISTRO: ubuntu-18.04
+      TARGETPLATFORM: ${{ matrix.targetplatform }}
+      REPO_URL: ghcr.io      
+      REPO: jackpocket/crops/poky
+      DEFAULT_DISTRO: debian-12
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       GHCR_USERNAME: ${{ github.actor }}
