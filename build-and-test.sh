@@ -21,7 +21,7 @@ if [ "${ENGINE_CMD}" = "" ]; then
     ENGINE_CMD="docker"
 fi
 
-${ENGINE_CMD} build 
+${ENGINE_CMD} build \
     --build-arg BASE_DISTRO=${BASE_DISTRO} \
     --build-arg TARGETPLATFORM=$(TARGETPLATFORM) \
     --pull -t ${REPO}:${BASE_DISTRO} .
